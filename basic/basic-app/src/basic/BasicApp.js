@@ -1,15 +1,34 @@
+import React, { useEffect, useState } from "react";
 import "./BasicApp.css";
 import Header from "./Header";
 import Content from "./Content";
 import Footer from "./Footer";
+import GithubInfo from "./GithubInfo";
 
 const fruits = ["Apple", "Orange", "Grape", "Guava"];
+
+//destructuring
+const [, special] = fruits;
+console.log(special);
 const dataObj = fruits.map((item, i) => ({ id: i, elemt: item }));
 function BasicApp() {
+  //hook - useState
+  const [currentState, setCurrentState] = useState("starting..");
+  console.log("use state ", currentState);
+
+  useEffect(() => {
+    console.log(`current state is ${currentState}`);
+  }, [currentState]);
+
   return (
     <div className="App">
-      <Header title="Basic App - SPA " />
+      <Header
+        title="Basic App - SPA "
+        state={currentState}
+        setState={setCurrentState}
+      />
       <Content data={dataObj} />
+      <GithubInfo user="bodong" />
       <Footer year={new Date().getFullYear()} />
     </div>
   );
