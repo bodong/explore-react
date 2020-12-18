@@ -1,5 +1,6 @@
 import Moment from "moment";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   const [checked, setChecked] = useState(false);
@@ -16,9 +17,13 @@ function Header(props) {
         what time? click me
       </button>
       <input type="checkbox" value={checked} onChange={toggle}></input>
-      <h1>
+      <h2>
         {props.title} - {props.state} - {checked ? "day" : "night"}
-      </h1>
+      </h2>
+      <nav>
+        <Link to="/">Home</Link> <span />
+        <Link to="me">Me</Link> <span />
+      </nav>
     </header>
   );
 }

@@ -1,6 +1,14 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 function Footer(props) {
   return (
     <footer>
+      <nav>
+        <Link to="about">About</Link> <span />
+        <Link to="events">Events</Link> <span />
+        <Link to="contact">Contact</Link> <span />
+      </nav>
       <p>Copyright @ {props.year}</p>
     </footer>
   );
