@@ -4,7 +4,7 @@ import Header from "./Header";
 import Content from "./Content";
 import Footer from "./Footer";
 import GithubInfo from "./GithubInfo";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { About, Events, Contact } from "./Pages";
 
 const fruits = ["Apple", "Orange", "Grape", "Guava"];
@@ -32,9 +32,10 @@ function BasicApp() {
       <Routes>
         <Route path="/" element={<Content data={dataObj} />} />
         <Route path="/me" element={<GithubInfo user="bodong" />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />}>
+          <Route path="events" element={<Events />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
       </Routes>
       <Footer year={new Date().getFullYear()} />
     </div>
